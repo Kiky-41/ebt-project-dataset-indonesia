@@ -179,7 +179,7 @@ After creating a GitHub release, Zenodo will automatically generate a DOI for th
 
 ## 📜 License
 
-MIT License
+Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 ---
 
