@@ -1,4 +1,5 @@
 # 🌿 Dataset: EBT Project Success Determinants in Indonesia (2002–2024)
+[![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441)
 
 Curated multi-source dataset of financially closed renewable energy (EBT) projects in Indonesia, constructed for machine learning analysis of project success determinants under evolving policy regimes.
 
