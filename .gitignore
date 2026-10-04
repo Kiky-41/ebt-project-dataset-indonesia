@@ -1,3 +1,12 @@
+# Generated dataset outputs (withheld until paper decision; build locally via python3 build_all.py)
+ebt_projects_2002_2024.csv
+ebt_era_summary.csv
+ebt_technology_summary.csv
+ebt_dimension_corr.csv
+ebt_missing_report.csv
+ml_ebt_backtest.csv
+ml_ebt_scores.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
