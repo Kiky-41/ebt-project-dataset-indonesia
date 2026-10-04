@@ -22,7 +22,7 @@ Sources: **World Bank PPI Database** (34 closed EBT projects), **RUPTL PLN 2025â
 
 ## Companion paper (under review, 2026)
 
-**Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (on request, rfkrhmn@telkomuniversity.ac.id). This dataset supports the paper; full methods, RF/GBM+SHAP results, and policy discussion are in the manuscript.
+**Ikhsan, Raharjo, Yustika**, *Governance, Regulation, and Renewable Energy Project Bankability in Indonesia: Cross-Sectoral Evidence for Utility Policy and Infrastructure Financing* (under review, 2026; on request, rfkrhmn@telkomuniversity.ac.id). This dataset supports the paper; full methods, RF/GBM+SHAP results, and policy discussion are in the manuscript.
 
 ## ML (`ml_ebt.py`, LOO-CV n=34)
 
