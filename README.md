@@ -38,8 +38,6 @@ $$S = 0.25\,D_1 + 0.30\,D_2 + 0.20\,D_3 + 0.25\,D_4$$
 ## Method
 Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis uses random forest, gradient boosting, and Kernel SHAP.
 
-## Concept
-Project success is scored, not declared. Four dimensions (money, governance, scale-tech, grid-regulatory) combine into `S`; terciles label Successful, At Risk, Failed. Consensus models plus SHAP then ask which features move `S` across policy eras.
 
 ## Reproduce (after data release)
 `pip install -r requirements.txt`, open the analysis notebook, point to `ppi_master_v2.csv`, Run All.
