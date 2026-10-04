@@ -24,6 +24,14 @@ Sources: **World Bank PPI Database** (34 closed EBT projects), **RUPTL PLN 2025�
 
 **Ikhsan, Raharjo, Yustika**, *Governance, Regulation, and Renewable Energy Project Bankability in Indonesia: Cross-Sectoral Evidence for Utility Policy and Infrastructure Financing* (under review, 2026; on request, rfkrhmn@telkomuniversity.ac.id). This dataset supports the paper; full methods, RF/GBM+SHAP results, and policy discussion are in the manuscript.
 
+**Argument.** Indonesia holds >3,687 GW technical renewable potential yet deployed ~12.5 GW by 2024. Since the 2017 FIT-to-BPP shift (85% cost-ceiling), private EBT success rates fell. No integrated evidence base guides coordinated action across ESDM, PLN, OJK, Bank Indonesia, and MDBs.
+
+**Method.** Consensus Random Forest (B=500) + Gradient Boosting (M=200) with Kernel SHAP over 27 primary features; four theory-first dimensions (D1 Financial, D2 Governance, D3 Scale/Tech, D4 Regulatory/Grid); LOO-CV (n=34); min-max normalised consensus score across RF-perm, RF-SHAP, GBM-gain, GBM-SHAP.
+
+**Results (paper).** GBM R² 0.802 / RF R² 0.664 (LOO); SHAP inter-model r=0.876. Top determinants: sponsor_strength (0.928), financing_struct_score (0.903), ownership_type (0.856); top-11 = 85% of importance. FIT 51.5 → BPP-III 15.4 (100% Non-Bankable, n=4, descriptive). Hydro 75% bankable; Bioenergy 100% non-bankable. Counterfactuals: universal MDB +7.4 pts, MDB+bidding +9.1, FIT-restore +0.2, PLN-credit-80 −1.8 (regime confound).
+
+**Policy matrix (paper).** ESDM: LCOE-based floors, 25-yr PPAs, FX clause; PLN: transmission + take-or-pay/guarantees; BI: 50–70% green risk weights + blended facility; OJK: taxonomy threshold ≥63.6 + EBT bond framework; MDB/DFI: ≥30% co-finance + preparation facilities for 31.1–63.6 pre-bankable projects.
+
 ## ML (`ml_ebt.py`, LOO-CV n=34)
 
 Numpy+pandas. Outputs: `ml_ebt_backtest.csv`, `ml_ebt_scores.csv`.
