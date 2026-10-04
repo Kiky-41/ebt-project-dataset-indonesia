@@ -1,45 +1,51 @@
-# EBT Project Success Determinants in Indonesia (2002-2024)
+# EBT Project Success in Indonesia (2002-2024)
 
 [![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441) [![License](https://img.shields.io/badge/license-CC--BY--4.0-green)](LICENSE)
 
-Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (manuscript available on reasonable request, rfkrhmn@telkomuniversity.ac.id). Sources: **World Bank PPI Database** (34 financially closed EBT projects), **RUPTL PLN 2025-2034** (198 planned projects), **LPEM-FEB UI WP052**, **ESDM Handbook 2024**, **IRENA Outlook Indonesia 2022**, **OJK Sustainable Finance Roadmap**, **PLN audited statements**, **Bank Indonesia daily USD/IDR** (5,633 observations 2002-2024), **RUKN 2025**, **PLN Statistics 2022**. The full table `ppi_master_v2.csv` is not redistributed until acceptance.
+Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (on request, rfkrhmn@telkomuniversity.ac.id). Thirty-four wind, sun, water, and steam bets reached financial close; some thrived, some stalled as tariffs shifted from FIT to BPP eras. This dataset asks what separated them, with receipts from ten public sources.
 
 Related repos: [vlim-economic-dispatch](https://github.com/Kiky-41/vlim-economic-dispatch), [eic-agc-generator-scheduling](https://github.com/Kiky-41/eic-agc-generator-scheduling), [emfo-sca-ded-optimization](https://github.com/Kiky-41/emfo-sca-ded-optimization), [grasp-bls-eed-uc](https://github.com/Kiky-41/grasp-bls-eed-uc), [sca-ba-dg-placement](https://github.com/Kiky-41/sca-ba-dg-placement), [energy-consumption-forecasting-gru](https://github.com/Kiky-41/energy-consumption-forecasting-gru), [doa-power-systems](https://github.com/Kiky-41/doa-power-systems), [jamali-power-system-dataset](https://github.com/Kiky-41/jamali-power-system-dataset), [power-system-optimization-test-systems](https://github.com/Kiky-41/power-system-optimization-test-systems).
 
 | File | Contents |
 |---|---|
 | `requirements.txt` | numpy, pandas, scikit-learn, shap, matplotlib, jupyter |
-| `CITATION.cff` | Machine-readable citation (DOI 10.5281/zenodo.19657441) |
+| `CITATION.cff` | Machine-readable citation |
 
-Note: this repo currently ships documentation and schema only; full `ppi_master_v2.csv` (34 projects x 73 features) is on request. Raw project data is public at the World Bank PPI Database; FX at bi.go.id.
+Full `ppi_master_v2.csv` (34 projects by 73 features) ships on acceptance; raw projects live at the World Bank PPI Database, FX at bi.go.id.
 
-| Item | Value |
-|---|---|
-| Projects | 34 (financial close 2002-2024), 3,170 MW total (0.4-647 MW), USD 4.8B cumulative |
-| Features | 73 engineered, 27 primary for ML |
-| Target | `composite_v3` 0-100, mean 45.0 (SD 27.5); Successful >=63.6 (11), At Risk 31.1-63.6 (12), Failed <31.1 (11) |
-| Policy eras | FIT pre-2017 (21, mean 51.5, 19.0 percent failed); BPP-I 2017-2019 (8, 43.0); BPP-II 2020-2021 (1, 43.9); BPP-III 2022+ (4, 15.4, 100 percent failed) |
-| MDB backing | 7 projects, mean 69.3 vs 27 non-MDB mean 38.7 |
-
-## Headline findings
 ## Score
 
 $$S = 0.25\,D_1 + 0.30\,D_2 + 0.20\,D_3 + 0.25\,D_4$$
 
-| Dimension | Weight | Content |
+| Dimension | Weight | Story |
 |---|---|---|
-| D1 Financial viability | 0.25 | BPP headroom, debt fraction, contract length, cost per MW, FX volatility |
-| D2 Governance and sponsorship | 0.30 | MDB support, sponsor strength, procurement, ownership |
-| D3 Scale and technology | 0.20 | Capacity, maturity, LCOE, years operating |
-| D4 Regulatory and grid | 0.25 | FIT/BPP regime, PLN credit, grid access |
-- Sponsor strength, financing structure, and ownership type rank top in consensus RF and GBM with Kernel SHAP; BPP headroom, grid accessibility, and PLN credit at financial close complete the core set.
-- Regime break is stark: FIT-era success collapses under BPP-III in this sample (n=4, all failed); interpretation is limited by small n and selection into financial close.
+| D1 Money | 0.25 | tariff headroom, debt, contract length, cost per MW |
+| D2 Backers | 0.30 | MDB support, sponsor muscle, procurement, ownership |
+| D3 Scale-tech | 0.20 | size, maturity, LCOE, years running |
+| D4 Rules-grid | 0.25 | FIT/BPP era, PLN credit, grid reach |
+
+## Results
+
+| Cut | Rule | Count |
+|---|---|---|
+| Successful | S at least 63.6 | 11 |
+| At Risk | 31.1 to 63.6 | 12 |
+| Failed | below 31.1 | 11 |
+
+| Era | Projects | Mean S | Failed share |
+|---|---|---|---|
+| FIT pre-2017 | 21 | 51.5 | 19.0 percent |
+| BPP-I 2017-2019 | 8 | 43.0 | 37.5 percent |
+| BPP-II 2020-2021 | 1 | 43.9 | 0.0 percent |
+| BPP-III 2022 on | 4 | 15.4 | 100 percent |
+
+MDB-backed projects average 69.3 against 38.7 for the rest; sponsors and financing structure top the SHAP list. The BPP-III cell is tiny (n=4), so read it as a warning flag, not a verdict.
 
 ## Proposed method
-Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis uses random forest, gradient boosting, and Kernel SHAP.
 
+Consensus random forest plus gradient boosting, explained by Kernel SHAP over 27 primary features. Four theory-first dimensions keep the score honest across regimes.
 
-## Reproduce (after data release)
-`pip install -r requirements.txt`, open the analysis notebook, point to `ppi_master_v2.csv`, Run All.
+## Reproduce (after release)
+`pip install -r requirements.txt`, point the notebook to `ppi_master_v2.csv`, Run All.
 
 License: CC-BY-4.0. Cite DOI 10.5281/zenodo.19657441.
