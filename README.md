@@ -1,3 +1,5 @@
+> Portfolio: [VLIM](https://github.com/Kiky-41/vlim-economic-dispatch) · [EIC-AGC](https://github.com/Kiky-41/eic-agc-generator-scheduling) · [EMFO-SCA](https://github.com/Kiky-41/emfo-sca-ded-optimization) · [GRASP-BLS](https://github.com/Kiky-41/grasp-bls-eed-uc) · [SCA-BA](https://github.com/Kiky-41/sca-ba-dg-placement) · [GRU-Forecast](https://github.com/Kiky-41/energy-consumption-forecasting-gru) · [DOA-Book](https://github.com/Kiky-41/doa-power-systems) · [Jamali-Dataset](https://github.com/Kiky-41/jamali-power-system-dataset) · [Test-Systems](https://github.com/Kiky-41/power-system-optimization-test-systems)
+
 # 🌿 Dataset: EBT Project Success Determinants in Indonesia (2002–2024)
 [![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441)
 
@@ -76,8 +78,8 @@ $$S = 0.25 \, D_1 + 0.30 \, D_2 + 0.20 \, D_3 + 0.25 \, D_4$$
 ## 📂 Project Structure
 
 ```text
-ebt-project-dataset-indonesia/
-├── data/
+ebt-project-dataset-indonesia/  # actual: README+LICENSE only; data on request (under review)
+├── data/ (on request)
 │   └── ppi_master_v2.csv       # Main dataset (34 projects × 73 features)
 ├── notebooks/
 │   └── Finale_v2_0.ipynb       # Analysis notebook (RF + GBM + Kernel SHAP)
