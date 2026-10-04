@@ -75,6 +75,9 @@ $$S = 0.25 \, D_1 + 0.30 \, D_2 + 0.20 \, D_3 + 0.25 \, D_4$$
 
 ---
 
+## 📄 Manuscript breakdown (under review, 2026)
+*Consensus ML + SHAP on 34 projects.* Four success dimensions `S=0.25D1+0.30D2+0.20D3+0.25D4` (financial, governance, scale-tech, regulatory-grid). 73 features → 27 primary; RF+GBM consensus + Kernel SHAP. Findings: MDB backing 69.3 vs 38.7; FIT era mean 51.5 vs BPP-III 15.4 (100% failed, n=4); sponsor/financing scores top SHAP. Full `ppi_master_v2.csv` on request until acceptance; schema + `Finale_v2_0.ipynb` logic documented above.
+
 ## 📂 Project Structure
 
 ```text
