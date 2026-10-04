@@ -1,202 +1,40 @@
-> Portfolio: [VLIM](https://github.com/Kiky-41/vlim-economic-dispatch) · [EIC-AGC](https://github.com/Kiky-41/eic-agc-generator-scheduling) · [EMFO-SCA](https://github.com/Kiky-41/emfo-sca-ded-optimization) · [GRASP-BLS](https://github.com/Kiky-41/grasp-bls-eed-uc) · [SCA-BA](https://github.com/Kiky-41/sca-ba-dg-placement) · [GRU-Forecast](https://github.com/Kiky-41/energy-consumption-forecasting-gru) · [DOA-Book](https://github.com/Kiky-41/doa-power-systems) · [Jamali-Dataset](https://github.com/Kiky-41/jamali-power-system-dataset) · [Test-Systems](https://github.com/Kiky-41/power-system-optimization-test-systems)
+# EBT Project Success Determinants in Indonesia (2002-2024)
 
-# 🌿 Dataset: EBT Project Success Determinants in Indonesia (2002–2024)
 [![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441)
 
-Curated multi-source dataset of financially closed renewable energy (EBT) projects in Indonesia, constructed for machine learning analysis of project success determinants under evolving policy regimes.
+Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (manuscript available on reasonable request, rfkrhmn@telkomuniversity.ac.id). Sources: **World Bank PPI Database** (34 financially closed EBT projects), **RUPTL PLN 2025-2034** (198 planned projects), **LPEM-FEB UI WP052**, **ESDM Handbook 2024**, **IRENA Outlook Indonesia 2022**, **OJK Sustainable Finance Roadmap**, **PLN audited statements**, **Bank Indonesia daily USD/IDR** (5,633 observations 2002-2024), **RUKN 2025**, **PLN Statistics 2022**. Local: `Data/ppi_master_v2.csv` (not redistributed until acceptance).
 
-This dataset supports research on blended finance, green macroprudential policy, and sustainable energy investment in Indonesia.
+Related repos: [vlim-economic-dispatch](https://github.com/Kiky-41/vlim-economic-dispatch), [eic-agc-generator-scheduling](https://github.com/Kiky-41/eic-agc-generator-scheduling), [emfo-sca-ded-optimization](https://github.com/Kiky-41/emfo-sca-ded-optimization), [grasp-bls-eed-uc](https://github.com/Kiky-41/grasp-bls-eed-uc), [sca-ba-dg-placement](https://github.com/Kiky-41/sca-ba-dg-placement), [energy-consumption-forecasting-gru](https://github.com/Kiky-41/energy-consumption-forecasting-gru), [doa-power-systems](https://github.com/Kiky-41/doa-power-systems), [jamali-power-system-dataset](https://github.com/Kiky-41/jamali-power-system-dataset), [power-system-optimization-test-systems](https://github.com/Kiky-41/power-system-optimization-test-systems).
 
----
+| File | Contents |
+|---|---|
+| `requirements.txt` | numpy, pandas, scikit-learn, shap, matplotlib, jupyter |
+| `CITATION.cff` | Machine-readable citation (DOI 10.5281/zenodo.19657441) |
 
-## 📄 Related Publication
+Note: this repo currently ships documentation and schema only; full `ppi_master_v2.csv` (34 projects x 73 features) is on request. Raw project data is public at the World Bank PPI Database; FX at bi.go.id.
 
-Ikhsan, R.R.N., Raharjo, J., Yustika, L.M. (2026)
-*Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change*
-*(under review — manuscript available upon reasonable request)*
+| Item | Value |
+|---|---|
+| Projects | 34 (financial close 2002-2024), 3,170 MW total (0.4-647 MW), USD 4.8B cumulative |
+| Features | 73 engineered, 27 primary for ML |
+| Target | `composite_v3` 0-100, mean 45.0 (SD 27.5); Successful >=63.6 (11), At Risk 31.1-63.6 (12), Failed <31.1 (11) |
+| Policy eras | FIT pre-2017 (21, mean 51.5, 19.0 percent failed); BPP-I 2017-2019 (8, 43.0); BPP-II 2020-2021 (1, 43.9); BPP-III 2022+ (4, 15.4, 100 percent failed) |
+| MDB backing | 7 projects, mean 69.3 vs 27 non-MDB mean 38.7 |
 
----
+## Headline findings
+- Composite `S = 0.25 D1 + 0.30 D2 + 0.20 D3 + 0.25 D4` across financial viability, governance and sponsorship, scale and technology, regulatory and grid access.
+- Sponsor strength, financing structure, and ownership type rank top in consensus RF and GBM with Kernel SHAP; BPP headroom, grid accessibility, and PLN credit at financial close complete the core set.
+- Regime break is stark: FIT-era success collapses under BPP-III in this sample (n=4, all failed); interpretation is limited by small n and selection into financial close.
 
-## 🚀 Features
+## Method
+Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis logic is in local `Finale_v2_0.ipynb`.
 
-- 📦 **34 financially closed EBT projects** — full population, World Bank PPI Database, 2002–2024
-- 🔢 **73 engineered features** from 10 integrated data sources
-- 🏗️ **4-dimension composite success score** (composite_v3, scale 0–100)
-- 🧠 **Machine learning ready** — RF, GBM, and Kernel SHAP compatible
-- 📅 Covers **4 policy eras**: FIT, BPP-I, BPP-II, BPP-III
-- ⚡ **6 technology types**: Geothermal, Hydro, MicroHydro, Solar, Wind, Bioenergy
+## Limitations
+1. Full data withheld until paper decision; schema above is the contract for the release.
+2. n=34; BPP-II (n=1) and BPP-III (n=4) cells are too small for inference; reported as description.
+3. PPI covers financial close, not construction or operation outcomes.
 
----
+## Reproduce (after data release)
+`pip install -r requirements.txt`, open the analysis notebook, point to `ppi_master_v2.csv`, Run All.
 
-## 🧠 Dataset Overview
-
-The composite success score is theory-driven across four dimensions:
-
-$$S = 0.25 \, D_1 + 0.30 \, D_2 + 0.20 \, D_3 + 0.25 \, D_4$$
-
-| Dimension | Weight | Description |
-|-----------|--------|-------------|
-| D1 — Financial Viability | 25% | BPP headroom, debt fraction, contract duration, cost per MW, FX volatility |
-| D2 — Governance & Sponsorship | 30% | MDB support, sponsor strength, competitive procurement, ownership type |
-| D3 — Scale & Technology | 20% | Installed capacity, technology maturity, LCOE, years in operation |
-| D4 — Regulatory & Grid Access | 25% | Policy regime (FIT/BPP), PLN credit score, grid accessibility |
-
----
-
-## 📊 Key Statistics
-
-| Statistic | Value |
-|-----------|-------|
-| Projects | 34 (financial close 2002–2024) |
-| Total capacity | 3,170 MW (range: 0.4–647 MW) |
-| Total investment | USD 4.8B (cumulative) |
-| Features (post-engineering) | 73 |
-| ML primary features | 27 |
-| Composite score mean (SD) | 45.0 (27.5), range 0–100 |
-| MDB-backed projects | 7 (mean score: 69.3) |
-| Non-MDB projects | 27 (mean score: 38.7) |
-
-**Success classification (empirical tercile thresholds):**
-
-| Class | Threshold | Count |
-|-------|-----------|-------|
-| Successful | composite_v3 ≥ 63.6 | 11 (32%) |
-| At Risk | 31.1 ≤ composite_v3 < 63.6 | 12 (35%) |
-| Failed | composite_v3 < 31.1 | 11 (32%) |
-
-**By policy era:**
-
-| Era | n | Mean Score | Failed (%) |
-|-----|---|-----------|-----------|
-| FIT (pre-2017) | 21 | 51.5 | 19.0% |
-| BPP-I (2017–2019) | 8 | 43.0 | 37.5% |
-| BPP-II (2020–2021) | 1 | 43.9 | 0.0% |
-| BPP-III (2022+) | 4 | 15.4 | **100%** |
-
----
-
-## 📄 Manuscript breakdown (under review, 2026)
-*Consensus ML + SHAP on 34 projects.* Four success dimensions `S=0.25D1+0.30D2+0.20D3+0.25D4` (financial, governance, scale-tech, regulatory-grid). 73 features → 27 primary; RF+GBM consensus + Kernel SHAP. Findings: MDB backing 69.3 vs 38.7; FIT era mean 51.5 vs BPP-III 15.4 (100% failed, n=4); sponsor/financing scores top SHAP. Full `ppi_master_v2.csv` on request until acceptance; schema + `Finale_v2_0.ipynb` logic documented above.
-
-## 📂 Project Structure
-
-```text
-ebt-project-dataset-indonesia/  # actual: README+LICENSE only; data on request (under review)
-├── data/ (on request)
-│   └── ppi_master_v2.csv       # Main dataset (34 projects × 73 features)
-├── notebooks/
-│   └── Finale_v2_0.ipynb       # Analysis notebook (RF + GBM + Kernel SHAP)
-├── README.md
-└── .gitignore
-```
-
----
-
-## ⚙️ Requirements
-
-- Python 3.x
-- NumPy
-- Pandas
-- Scikit-learn
-- SHAP
-- Matplotlib
-- Jupyter Notebook
-
-Install all dependencies:
-
-```bash
-pip install numpy pandas scikit-learn shap matplotlib jupyter
-```
-
----
-
-## ▶️ Usage
-
-Clone and run the notebook:
-
-```bash
-git clone https://github.com/Kiky-41/ebt-project-dataset-indonesia.git
-cd ebt-project-dataset-indonesia
-jupyter notebook
-```
-
-Open `notebooks/Finale_v2_0.ipynb` and run all cells.
-
----
-
-## 📊 Data Sources
-
-The dataset integrates 10 primary sources:
-
-| No. | Source | Primary Content |
-|----|--------|----------------|
-| 1 | World Bank PPI Database | 34 EBT projects: finance, capital structure, technology, sponsor |
-| 2 | RUPTL PLN 2025–2034 | 198 planned projects, capacity and investment by region |
-| 3 | LPEM-FEB UI WP052 (2020) | BPP tariff analysis, WACC benchmarks |
-| 4 | ESDM Handbook 2024 | National energy statistics, installed capacity by technology |
-| 5 | IRENA Outlook Indonesia (2022) | LCOE benchmarks, EBT potential by province |
-| 6 | OJK Sustainable Finance Roadmap | Green finance framework and taxonomy |
-| 7 | PLN Audited Financial Statements | Interest coverage ratio, net revenue, credit quality |
-| 8 | Bank Indonesia Daily Exchange Rate | 5,633 USD/IDR daily observations (2002–2024) |
-| 9 | RUKN 2025 | National transmission plan, grid balance by region |
-| 10 | PLN Statistics 2022 | Grid density, electrification ratio, network length by region |
-
----
-
-## 📊 Dataset
-
-> ⚠️ The full dataset (`ppi_master_v2.csv`) is currently **not publicly released** as the associated paper is under review.
-
-To request access:
-- Contact the corresponding author: rfkrhmn@telkomuniversity.ac.id
-- Raw project data is publicly available at the [World Bank PPI Database](https://ppi.worldbank.org)
-- Bank Indonesia exchange rate data: [https://www.bi.go.id](https://www.bi.go.id)
-
-The dataset will be made publicly available upon paper acceptance.
-
-**Dataset schema (selected features):**
-
-| Feature | Dimension | Description |
-|---------|-----------|-------------|
-| sponsor_strength | D2 | Composite governance score (CS = 0.928) |
-| financing_struct_score | D1 | Capital stack quality index (CS = 0.903) |
-| ownership_type | D2 | Project ownership classification (CS = 0.856) |
-| bpp_headroom_BI | D1 | BPP tariff headroom relative to WACC |
-| grid_accessibility | D4 | Regional grid accessibility proxy |
-| pln_credit_at_fc | D4 | PLN credit score at financial close |
-| composite_v3 | Target | Composite success score (0–100) |
-
----
-
-## 📌 Reproducibility
-
-This repository contains the analysis code and dataset schema.
-Full reproduction of published results requires the complete `ppi_master_v2.csv` dataset, available upon reasonable request from the corresponding author.
-
----
-
-
-## 🔗 DOI (Zenodo)
-
-After creating a GitHub release, Zenodo will automatically generate a DOI for this repository.
-
----
-
-## 📜 License
-
-Creative Commons Attribution 4.0 International (CC BY 4.0)
-
----
-
-## 🙌 Acknowledgements
-
-This work is based on research in renewable energy project finance, interpretable machine learning, and Indonesia's energy transition policy.
-
----
-
-## ⭐ Support
-
-If you find this repository useful:
-- ⭐ Star this repo
-- 🍴 Fork and contribute
-- 📢 Share with the research community
+License: CC-BY-4.0. Cite DOI 10.5281/zenodo.19657441.
