@@ -1,6 +1,6 @@
 # EBT Project Success Determinants in Indonesia (2002-2024)
 
-[![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441)
+[![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441) [![License](https://img.shields.io/badge/license-CC--BY--4.0-green)](LICENSE)
 
 Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (manuscript available on reasonable request, rfkrhmn@telkomuniversity.ac.id). Sources: **World Bank PPI Database** (34 financially closed EBT projects), **RUPTL PLN 2025-2034** (198 planned projects), **LPEM-FEB UI WP052**, **ESDM Handbook 2024**, **IRENA Outlook Indonesia 2022**, **OJK Sustainable Finance Roadmap**, **PLN audited statements**, **Bank Indonesia daily USD/IDR** (5,633 observations 2002-2024), **RUKN 2025**, **PLN Statistics 2022**. Local: `Data/ppi_master_v2.csv` (not redistributed until acceptance).
 
