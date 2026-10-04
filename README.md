@@ -35,7 +35,7 @@ $$S = 0.25\,D_1 + 0.30\,D_2 + 0.20\,D_3 + 0.25\,D_4$$
 - Sponsor strength, financing structure, and ownership type rank top in consensus RF and GBM with Kernel SHAP; BPP headroom, grid accessibility, and PLN credit at financial close complete the core set.
 - Regime break is stark: FIT-era success collapses under BPP-III in this sample (n=4, all failed); interpretation is limited by small n and selection into financial close.
 
-## Method
+## Proposed method
 Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis uses random forest, gradient boosting, and Kernel SHAP.
 
 
