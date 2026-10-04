@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/1215570272.svg)](https://doi.org/10.5281/zenodo.19657441) [![License](https://img.shields.io/badge/license-CC--BY--4.0-green)](LICENSE)
 
-Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (manuscript available on reasonable request, rfkrhmn@telkomuniversity.ac.id). Sources: **World Bank PPI Database** (34 financially closed EBT projects), **RUPTL PLN 2025-2034** (198 planned projects), **LPEM-FEB UI WP052**, **ESDM Handbook 2024**, **IRENA Outlook Indonesia 2022**, **OJK Sustainable Finance Roadmap**, **PLN audited statements**, **Bank Indonesia daily USD/IDR** (5,633 observations 2002-2024), **RUKN 2025**, **PLN Statistics 2022**. Local: `Data/ppi_master_v2.csv` (not redistributed until acceptance).
+Manuscript (under review, 2026): **Ikhsan, Raharjo, Yustika**, *Consensus Machine Learning and SHAP-Based Evidence on the Determinants of Renewable Energy Project Success in Indonesia under Policy Regime Change* (manuscript available on reasonable request, rfkrhmn@telkomuniversity.ac.id). Sources: **World Bank PPI Database** (34 financially closed EBT projects), **RUPTL PLN 2025-2034** (198 planned projects), **LPEM-FEB UI WP052**, **ESDM Handbook 2024**, **IRENA Outlook Indonesia 2022**, **OJK Sustainable Finance Roadmap**, **PLN audited statements**, **Bank Indonesia daily USD/IDR** (5,633 observations 2002-2024), **RUKN 2025**, **PLN Statistics 2022**. The full table `ppi_master_v2.csv` is not redistributed until acceptance.
 
 Related repos: [vlim-economic-dispatch](https://github.com/Kiky-41/vlim-economic-dispatch), [eic-agc-generator-scheduling](https://github.com/Kiky-41/eic-agc-generator-scheduling), [emfo-sca-ded-optimization](https://github.com/Kiky-41/emfo-sca-ded-optimization), [grasp-bls-eed-uc](https://github.com/Kiky-41/grasp-bls-eed-uc), [sca-ba-dg-placement](https://github.com/Kiky-41/sca-ba-dg-placement), [energy-consumption-forecasting-gru](https://github.com/Kiky-41/energy-consumption-forecasting-gru), [doa-power-systems](https://github.com/Kiky-41/doa-power-systems), [jamali-power-system-dataset](https://github.com/Kiky-41/jamali-power-system-dataset), [power-system-optimization-test-systems](https://github.com/Kiky-41/power-system-optimization-test-systems).
 
@@ -27,7 +27,7 @@ Note: this repo currently ships documentation and schema only; full `ppi_master_
 - Regime break is stark: FIT-era success collapses under BPP-III in this sample (n=4, all failed); interpretation is limited by small n and selection into financial close.
 
 ## Method
-Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis logic is in local `Finale_v2_0.ipynb`.
+Consensus RF plus GBM with Kernel SHAP; 4-dimension theory-driven score; 10-source merge with FX volatility, BPP tariff headroom vs WACC, and regional grid proxies. Analysis uses random forest, gradient boosting, and Kernel SHAP.
 
 ## Limitations
 1. Full data withheld until paper decision; schema above is the contract for the release.
