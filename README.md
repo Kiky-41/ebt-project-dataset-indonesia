@@ -22,7 +22,16 @@ Note: this repo currently ships documentation and schema only; full `ppi_master_
 | MDB backing | 7 projects, mean 69.3 vs 27 non-MDB mean 38.7 |
 
 ## Headline findings
-- Composite `S = 0.25 D1 + 0.30 D2 + 0.20 D3 + 0.25 D4` across financial viability, governance and sponsorship, scale and technology, regulatory and grid access.
+## Score
+
+$$S = 0.25\,D_1 + 0.30\,D_2 + 0.20\,D_3 + 0.25\,D_4$$
+
+| Dimension | Weight | Content |
+|---|---|---|
+| D1 Financial viability | 0.25 | BPP headroom, debt fraction, contract length, cost per MW, FX volatility |
+| D2 Governance and sponsorship | 0.30 | MDB support, sponsor strength, procurement, ownership |
+| D3 Scale and technology | 0.20 | Capacity, maturity, LCOE, years operating |
+| D4 Regulatory and grid | 0.25 | FIT/BPP regime, PLN credit, grid access |
 - Sponsor strength, financing structure, and ownership type rank top in consensus RF and GBM with Kernel SHAP; BPP headroom, grid accessibility, and PLN credit at financial close complete the core set.
 - Regime break is stark: FIT-era success collapses under BPP-III in this sample (n=4, all failed); interpretation is limited by small n and selection into financial close.
 
